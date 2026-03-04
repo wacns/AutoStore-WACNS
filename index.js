@@ -3,10 +3,14 @@ const http = require("http");
 const PORT = process.env.PORT || 3000;
 
 http.createServer((req, res) => {
+  if (req.url === "/health") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    return res.end("OK");
+  }
   res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("Bot is running");
+  res.end("Alive");
 }).listen(PORT, "0.0.0.0", () => {
-  console.log(`Health server running on port ${PORT}`);
+  console.log(`[SYSTEM] 🌐 Health server listening on 0.0.0.0:${PORT}`);
 });
 
 ﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿require('dotenv').config();
