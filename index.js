@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿require('dotenv').config();
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿require('dotenv').config();
 const { 
     Client, GatewayIntentBits, Collection, EmbedBuilder, 
     ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, AttachmentBuilder,
@@ -434,7 +434,7 @@ If the bot is **OFFLINE** in the world:
                 // Step 5: Send logs and deliver product to user
                 const file = new AttachmentBuilder(Buffer.from(itemsToSell.join('\n')), { name: `${code}.txt` });
 
-                await sendUpdateLog(process.env.CHANNEL_BUY_ID,
+                await sendUpdateLog(process.env.CHANNEL_BUY_LOG_ID,
                     `${E.soldLog} SOLD`,
                     `User: <@${interaction.user.id}>\nItem: ${qty} (${product.name})\nTotal: ${Math.floor(totalCostWL/100)} ${E.dl} ${totalCostWL%100} ${E.wl}`,
                     '#00FFFF'
